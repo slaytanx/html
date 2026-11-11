@@ -7,29 +7,38 @@
   <meta name="description" content="구파발역 출발 지하철 3호선·직통 버스 권역의 간호·간병통합서비스 병원 6곳과 역세권 한방병원 4곳의 비용 구조 및 실제 후기를 비교한 가이드입니다.">
   <meta name="color-scheme" content="light">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
   <style>
     :root {
-      --bg-page: #f4f7f5;
+      --bg-page: #f7f8fa;
       --bg-surface: #ffffff;
-      --bg-raised: #eaf0ec;
-      --text-primary: #16201b;
-      --text-secondary: #46544d;
-      --text-muted: #5f6f67;
-      --hairline: rgba(22, 32, 27, 0.08);
-      --hairline-strong: rgba(22, 32, 27, 0.16);
-      --accent: #1b6b4d;
-      --accent-hover: #14533b;
+      --bg-raised: #eef2f6;
+      --bg-subtle: #f1f5f9;
+      --text-primary: #1a222b;
+      --text-secondary: #3b4754;
+      --text-muted: #5a6776;
+      --line: #dde3ea;
+      --line-strong: #c5ced8;
+      --accent: #0f766e;
+      --accent-hover: #0d5e57;
       --accent-ink: #ffffff;
-      --accent-soft: rgba(27, 107, 77, 0.09);
-      --positive: #19734e;
-      --caution: #9a5b13;
-      --caution-soft: rgba(154, 91, 19, 0.1);
-      --danger: #9f2d2d;
-      --shadow-card: 0 1px 3px rgba(22, 32, 27, 0.05);
+      --accent-soft: #f0fdfa;
+      --accent-line: #99f6e4;
+      --caution: #b45309;
+      --caution-soft: #fffbeb;
+      --caution-line: #fde68a;
+      --danger: #b91c1c;
+      --danger-soft: #fef2f2;
+      --shadow-xs: 0 1px 2px rgba(26, 34, 43, 0.04);
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
       --font-sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-      --font-mono: ui-monospace, "SFMono-Regular", Menlo, Monaco, Consolas, monospace;
+      --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-pill: 999px;
     }
 
     *,
@@ -58,78 +67,20 @@
     body {
       margin: 0;
       min-block-size: 100dvb;
-      font-family: var(--font-sans);
-      font-size: 15px;
-      line-height: 1.65;
-      background-color: var(--bg-page);
+      background: var(--bg-page);
       color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: clip;
       word-break: keep-all;
       overflow-wrap: break-word;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
 
-    a {
-      color: var(--accent);
-      text-underline-offset: 3px;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-    }
-
-    :where(a:any-link, button, input, summary, [tabindex]):focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-
-    .visually-hidden:where(:not(:focus-within, :active)) {
-      position: absolute !important;
-      clip-path: inset(50%) !important;
-      overflow: hidden !important;
-      width: 1px !important;
-      height: 1px !important;
-      margin: -1px !important;
-      padding: 0 !important;
-      border: 0 !important;
-      white-space: nowrap !important;
-    }
-
-    .skip-link:focus-visible {
-      position: fixed;
-      inset-block-start: 16px;
-      inset-inline-start: 16px;
-      z-index: 100;
-      padding: 10px 16px;
-      border-radius: 8px;
-      background-color: var(--text-primary);
-      color: var(--bg-page);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    .container {
-      inline-size: min(100%, 1160px);
-      margin-inline: auto;
-      padding-inline: 20px;
-    }
-
-    @media (min-width: 720px) {
-      .container {
-        padding-inline: 32px;
-      }
-    }
-
-    .icon {
-      inline-size: 16px;
-      block-size: 16px;
-      flex-shrink: 0;
-      color: currentColor;
-    }
-
-    .num {
-      font-variant-numeric: tabular-nums;
+    main section[id],
+    main[id] {
+      scroll-margin-top: 72px;
     }
 
     .mono {
@@ -137,205 +88,263 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* Editorial Header */
-    .site-header {
-      padding-block: 40px 32px;
-      border-block-end: 1px solid var(--hairline);
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
     }
 
-    @media (min-width: 720px) {
-      .site-header {
-        padding-block: 48px 40px;
-      }
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    @media (min-width: 920px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr);
-        align-items: end;
-        gap: 40px;
-      }
-    }
-
-    .eyebrow {
-      margin: 0 0 12px;
-      font-size: 13px;
-      line-height: 20px;
-      color: var(--text-muted);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .site-header h1 {
+    .skip-link:focus {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 200;
+      width: auto;
+      height: auto;
+      padding: 10px 16px;
       margin: 0;
-      font-size: clamp(28px, 3.6vw, 40px);
-      font-weight: 500;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--text-primary);
+      clip-path: none;
+      background: var(--text-primary);
+      color: #ffffff;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      text-decoration: none;
     }
 
-    .hero-sub {
-      margin: 16px 0 0;
-      color: var(--text-secondary);
-      font-size: 15px;
-      max-inline-size: 62ch;
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
 
-    .hero-sub strong {
-      font-weight: 500;
-      color: var(--text-primary);
+    .container {
+      width: min(1240px, calc(100% - 48px));
+      margin-inline: auto;
     }
 
-    .condition-ledger {
-      margin: 0;
-      padding: 20px;
-      border-radius: 12px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      box-shadow: var(--shadow-card);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
+    .icon {
+      width: 16px;
+      height: 16px;
+      flex: none;
     }
 
-    @media (min-width: 560px) {
-      .condition-ledger {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px 20px;
-      }
-    }
-
-    .condition-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .condition-item dt {
-      font-size: 12px;
-      line-height: 16px;
-      color: var(--text-muted);
-    }
-
-    .condition-item dd {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--text-primary);
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* Sticky Section Navigation */
+    /* Sticky 56px Binder Top Bar */
     .top-nav {
       position: sticky;
-      inset-block-start: 0;
-      z-index: 40;
-      background-color: var(--bg-page);
-      border-block-end: 1px solid var(--hairline);
+      top: 0;
+      z-index: 100;
+      min-height: 56px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
     }
 
     .top-nav-inner {
+      min-height: 56px;
       display: flex;
-      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 8px;
+    }
+
+    .binder-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      white-space: nowrap;
+    }
+
+    .binder-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      background: var(--accent);
+      flex: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
       overflow-x: auto;
       scrollbar-width: none;
-      gap: 4px 8px;
-      padding-block: 8px;
-      align-items: center;
     }
 
-    .top-nav-inner::-webkit-scrollbar {
+    .nav-links::-webkit-scrollbar {
       display: none;
-    }
-
-    @media (min-width: 720px) {
-      .top-nav-inner {
-        flex-wrap: wrap;
-        flex-wrap: balance;
-        overflow-x: visible;
-        padding-block: 10px;
-      }
     }
 
     .top-nav a {
       display: inline-flex;
       align-items: center;
-      min-block-size: 36px;
-      padding-inline: 12px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 400;
+      gap: 6px;
+      padding: 7px 11px;
+      border-radius: var(--radius-sm);
       color: var(--text-secondary);
+      font-size: 13.5px;
+      font-weight: 600;
+      text-decoration: none;
       white-space: nowrap;
-      flex-shrink: 0;
-      font-variant-numeric: tabular-nums;
       transition: background-color 140ms var(--ease), color 140ms var(--ease);
     }
 
     .top-nav a:hover {
-      background-color: var(--bg-raised);
+      background: var(--bg-subtle);
       color: var(--text-primary);
     }
 
-    /* Main Flow */
+    .nav-idx {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Header / First Viewport Binder Sheet */
+    .site-header {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--line);
+      padding-block: 36px 32px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+      gap: 36px;
+      align-items: start;
+    }
+
+    .site-header h1 {
+      margin: 0 0 14px;
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      line-height: 1.24;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      text-wrap: balance;
+    }
+
+    .hero-sub {
+      margin: 0 0 20px;
+      max-width: 64ch;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .scope-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--line);
+      background: var(--bg-page);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .scope-chip.is-teal {
+      background: var(--accent-soft);
+      border-color: var(--accent-line);
+      color: var(--accent);
+    }
+
+    .scope-chip.is-amber {
+      background: var(--caution-soft);
+      border-color: var(--caution-line);
+      color: var(--caution);
+    }
+
+    .condition-ledger {
+      margin: 0;
+      background: var(--bg-page);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .condition-item {
+      display: grid;
+      grid-template-columns: 122px minmax(0, 1fr);
+      gap: 12px;
+      padding: 13px 18px;
+      align-items: baseline;
+    }
+
+    .condition-item + .condition-item {
+      border-top: 1px solid var(--line);
+    }
+
+    .condition-item dt {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .condition-item dd {
+      margin: 0;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.45;
+    }
+
+    /* Main Content Sections */
     main {
-      padding-block: 40px 64px;
+      padding-block: 36px 64px;
     }
 
-    main:focus {
-      outline: none;
-    }
-
-    section {
-      margin-block-end: 56px;
-      scroll-margin-top: 68px;
-    }
-
-    section:last-child {
-      margin-block-end: 0;
+    section + section {
+      margin-top: 52px;
+      padding-top: 40px;
+      border-top: 1px solid var(--line);
     }
 
     .section-head {
-      margin-block-end: 20px;
+      margin-bottom: 22px;
     }
 
     .section-head h2 {
       margin: 0 0 8px;
-      font-size: clamp(20px, 2.4vw, 26px);
-      font-weight: 500;
+      font-size: clamp(21px, 2.1vw, 26px);
+      font-weight: 800;
       line-height: 1.3;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       color: var(--text-primary);
-      font-variant-numeric: tabular-nums;
     }
 
     .section-head p {
       margin: 0;
+      max-width: 72ch;
+      font-size: 15px;
+      line-height: 1.65;
       color: var(--text-secondary);
-      max-inline-size: 72ch;
     }
 
-    .section-head strong {
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    /* Callout Banner */
+    /* Important Policy Alert (1px full border, no >1px side stripe) */
     .alert-box {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline-strong);
-      border-radius: 12px;
+      background: var(--caution-soft);
+      border: 1px solid var(--caution-line);
+      border-radius: var(--radius-md);
       padding: 20px 24px;
-      margin-block-end: 24px;
-      box-shadow: var(--shadow-card);
+      margin-bottom: 24px;
     }
 
     .alert-title {
@@ -343,888 +352,823 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 16px;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .alert-title .icon {
+      font-size: 15.5px;
+      font-weight: 800;
       color: var(--caution);
     }
 
     .alert-box ul {
       margin: 0;
-      padding-inline-start: 20px;
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    .alert-box li + li {
-      margin-block-start: 8px;
-    }
-
-    .alert-box strong {
-      font-weight: 500;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      font-size: 14.5px;
+      line-height: 1.65;
       color: var(--text-primary);
     }
 
-    /* Strategy & Cost Grids */
+    /* 3-Column Strategy Summary */
     .summary-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
-    }
-
-    @media (min-width: 780px) {
-      .summary-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      margin-bottom: 20px;
     }
 
     .summary-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      border-radius: 16px;
-      padding: 20px 24px;
-      box-shadow: var(--shadow-card);
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      box-shadow: var(--shadow-xs);
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    .tag-label {
-      display: inline-flex;
-      align-items: center;
+    .summary-card-head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       gap: 6px;
-      align-self: flex-start;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: 12px;
-      line-height: 18px;
-      font-weight: 500;
-      background-color: var(--bg-raised);
-      color: var(--text-secondary);
-    }
-
-    .tag-label.is-accent {
-      background-color: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .tag-label.is-caution {
-      background-color: var(--caution-soft);
-      color: var(--caution);
-    }
-
-    .status-dot {
-      inline-size: 6px;
-      block-size: 6px;
-      border-radius: 50%;
-      background-color: currentColor;
-      flex-shrink: 0;
     }
 
     .summary-card h3 {
       margin: 0;
-      font-size: 17px;
-      font-weight: 500;
+      font-size: 16.5px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
       color: var(--text-primary);
     }
 
     .summary-card p {
       margin: 0;
       font-size: 14px;
+      line-height: 1.68;
       color: var(--text-secondary);
     }
 
-    .summary-card strong {
-      font-weight: 500;
-      color: var(--text-primary);
+    .tag-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--bg-subtle);
+      color: var(--text-secondary);
     }
 
+    .tag-label.is-accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .tag-label.is-caution {
+      background: var(--caution-soft);
+      color: var(--caution);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+      flex: none;
+    }
+
+    /* 2-Column Decision Rule Ledger */
     .rule-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
-      margin-block-start: 16px;
-    }
-
-    @media (min-width: 780px) {
-      .rule-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
     }
 
     .rule-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
       padding: 20px 24px;
-      box-shadow: var(--shadow-card);
     }
 
     .rule-card h3 {
       margin: 0 0 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 800;
       color: var(--text-primary);
     }
 
     .rule-card ul {
       margin: 0;
-      padding-inline-start: 18px;
+      padding-left: 18px;
+      display: grid;
+      gap: 9px;
+      font-size: 14.5px;
+      line-height: 1.65;
       color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    .rule-card li + li {
-      margin-block-start: 8px;
     }
 
     .rule-card strong {
-      font-weight: 500;
       color: var(--text-primary);
     }
 
-    /* Search & Filter Toolbar */
+    /* Filter Toolbar & Matrix */
     .filter-toolbar {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 16px 20px;
-      margin-block-end: 20px;
-      box-shadow: var(--shadow-card);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      margin-bottom: 18px;
     }
 
     .filter-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
 
     .filter-buttons {
       display: flex;
       flex-wrap: wrap;
-      flex-wrap: balance;
       gap: 8px;
     }
 
     .filter-btn {
       appearance: none;
-      display: inline-flex;
-      align-items: center;
-      min-block-size: 36px;
-      padding-inline: 14px;
-      padding-block: 6px;
-      border-radius: 8px;
-      border: 1px solid var(--hairline-strong);
-      background-color: transparent;
+      border: 1px solid var(--line-strong);
+      background: var(--bg-surface);
       color: var(--text-secondary);
+      padding: 8px 13px;
+      border-radius: var(--radius-sm);
       font-family: inherit;
       font-size: 13px;
-      font-weight: 400;
+      font-weight: 600;
       cursor: pointer;
-      transition:
-        background-color 140ms var(--ease),
-        border-color 140ms var(--ease),
-        color 140ms var(--ease),
-        transform 140ms var(--ease);
+      transition: background-color 140ms var(--ease), border-color 140ms var(--ease), color 140ms var(--ease);
     }
 
     .filter-btn:hover {
-      background-color: var(--bg-raised);
+      background: var(--bg-subtle);
       color: var(--text-primary);
     }
 
-    .filter-btn:active {
-      transform: scale(0.98);
-    }
-
     .filter-btn[aria-pressed="true"] {
-      background-color: var(--accent);
-      border-color: transparent;
-      color: var(--accent-ink);
-      font-weight: 500;
+      background: var(--text-primary);
+      border-color: var(--text-primary);
+      color: #ffffff;
     }
 
     .search-wrap {
       position: relative;
       flex: 1 1 260px;
-      max-inline-size: 360px;
+      max-width: 340px;
     }
 
     .search-icon {
       position: absolute;
-      inset-inline-start: 12px;
-      inset-block-start: 50%;
+      left: 12px;
+      top: 50%;
       transform: translateY(-50%);
       color: var(--text-muted);
       pointer-events: none;
     }
 
-    .search-wrap input {
-      inline-size: 100%;
-      min-block-size: 36px;
-      padding-inline: 36px 12px;
-      padding-block: 6px;
-      border: 1px solid var(--hairline-strong);
-      border-radius: 8px;
-      background-color: var(--bg-page);
+    #hospital-search {
+      width: 100%;
+      padding: 8px 12px 8px 36px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-sm);
+      background: var(--bg-page);
       color: var(--text-primary);
       font-family: inherit;
-      font-size: 14px;
+      font-size: 13.5px;
     }
 
-    .search-wrap input::placeholder {
-      color: var(--text-muted);
+    #hospital-search:focus {
+      background: var(--bg-surface);
+      border-color: var(--accent);
     }
 
     .filter-status {
-      margin: 0;
+      margin: 10px 0 0;
       font-size: 13px;
+      font-weight: 600;
       color: var(--text-muted);
-      font-variant-numeric: tabular-nums;
     }
 
-    /* Responsive Sticky Matrix Table */
+    /* Comparison Table */
     .table-wrap {
-      container-type: inline-size;
-      container-name: table-wrap;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      box-shadow: var(--shadow-xs);
     }
 
     .table-scroll {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      border-radius: 16px;
-      box-shadow: var(--shadow-card);
-      overflow: auto;
-      max-block-size: 76dvh;
+      overflow-x: auto;
     }
 
     table {
-      inline-size: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      min-inline-size: 940px;
-      font-size: 14px;
-      font-variant-numeric: tabular-nums;
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
     }
 
     thead th {
-      position: sticky;
-      inset-block-start: 0;
-      z-index: 3;
-      background-color: var(--bg-raised);
-      color: var(--text-primary);
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--line-strong);
+      padding: 13px 16px;
       text-align: left;
-      padding: 12px 16px;
-      border-block-end: 1px solid var(--hairline-strong);
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-secondary);
       white-space: nowrap;
     }
 
-    thead th:first-child {
-      inset-inline-start: 0;
-      z-index: 4;
-      border-inline-end: 1px solid var(--hairline-strong);
+    tbody tr {
+      border-bottom: 1px solid var(--line);
+      transition: background-color 120ms var(--ease);
     }
 
-    tbody th[scope="row"] {
-      position: sticky;
-      inset-inline-start: 0;
-      z-index: 2;
-      background-color: var(--bg-surface);
-      text-align: left;
-      padding: 16px;
-      border-block-end: 1px solid var(--hairline);
-      border-inline-end: 1px solid var(--hairline);
-      vertical-align: top;
-      min-inline-size: 184px;
-      font-weight: 500;
+    tbody tr:last-child {
+      border-bottom: none;
     }
 
+    tbody tr:hover {
+      background: #f8fafc;
+    }
+
+    tbody th,
     tbody td {
-      padding: 16px;
-      border-block-end: 1px solid var(--hairline);
+      padding: 14px 16px;
       vertical-align: top;
+      font-size: 13.5px;
+      line-height: 1.55;
       color: var(--text-secondary);
+      text-align: left;
     }
 
-    tbody td strong,
-    tbody th strong {
-      font-weight: 500;
+    tbody th strong,
+    tbody td strong {
       color: var(--text-primary);
-    }
-
-    tbody tr:last-child th[scope="row"],
-    tbody tr:last-child td {
-      border-block-end: 0;
-    }
-
-    tbody tr[hidden] {
-      display: none;
     }
 
     .badge-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 4px;
-      margin-block-start: 6px;
+      gap: 5px;
+      margin-top: 6px;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      font-size: 12px;
-      line-height: 18px;
-      font-weight: 400;
-      padding: 1px 8px;
-      border-radius: 6px;
-      background-color: var(--bg-raised);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 11.5px;
+      font-weight: 700;
+      background: var(--bg-subtle);
       color: var(--text-secondary);
       white-space: nowrap;
     }
 
     .badge-accent {
-      background-color: var(--accent-soft);
+      background: var(--accent-soft);
       color: var(--accent);
     }
 
     .badge-caution {
-      background-color: var(--caution-soft);
+      background: var(--caution-soft);
       color: var(--caution);
     }
 
-    @container table-wrap (max-width: 46rem) {
-      .table-scroll {
-        overflow: visible;
-        max-block-size: none;
-        background-color: transparent;
-        border: none;
-        box-shadow: none;
-      }
-
-      table,
-      thead,
-      tbody,
-      tr,
-      th,
-      td {
-        display: block;
-        min-inline-size: 0;
-      }
-
-      thead {
-        display: none;
-      }
-
-      tbody tr {
-        background-color: var(--bg-surface);
-        border: 1px solid var(--hairline);
-        border-radius: 12px;
-        margin-block-end: 12px;
-        padding: 16px;
-        box-shadow: var(--shadow-card);
-      }
-
-      tbody th[scope="row"] {
-        position: static;
-        border: none;
-        border-block-end: 1px solid var(--hairline);
-        padding: 0 0 12px;
-        margin-block-end: 8px;
-        background-color: transparent;
-      }
-
-      tbody td {
-        position: relative;
-        display: block;
-        padding: 10px 0 10px 7.75rem;
-        min-block-size: 38px;
-        border-block-end: 1px solid var(--hairline);
-      }
-
-      tbody td:last-child {
-        border-block-end: none;
-        padding-block-end: 0;
-      }
-
-      tbody td::before {
-        content: attr(data-label);
-        position: absolute;
-        inset-inline-start: 0;
-        inset-block-start: 10px;
-        inline-size: 7.25rem;
-        font-weight: 500;
-        color: var(--text-muted);
-        font-size: 13px;
-        line-height: 1.5;
-      }
+    .empty-state {
+      margin-top: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      background: var(--bg-surface);
+      border: 1px dashed var(--line-strong);
+      border-radius: var(--radius-md);
     }
 
-    /* Hospital Detail Cards */
+    .empty-state p {
+      margin: 0 0 12px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .btn-quiet {
+      appearance: none;
+      border: 1px solid var(--line-strong);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .btn-quiet:hover {
+      background: var(--bg-subtle);
+    }
+
+    /* Group Headings & Detail Cards (FLAT — ZERO NESTED BOXES) */
     .cards-group-title {
+      margin: 28px 0 14px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
-      margin: 32px 0 16px;
-      padding-block-end: 12px;
-      border-block-end: 1px solid var(--hairline-strong);
-      font-size: 18px;
-      font-weight: 500;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 800;
       color: var(--text-primary);
     }
 
     .cards-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 18px;
     }
 
     .hospital-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      border-radius: 16px;
-      padding: 20px 24px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .hospital-card[hidden] {
-      display: none;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-xs);
+      overflow: hidden;
     }
 
     .card-top {
+      padding: 20px 24px 16px;
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-items: flex-start;
-      gap: 12px 20px;
-      margin-block-end: 16px;
-      padding-block-end: 16px;
-      border-block-end: 1px solid var(--hairline);
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .rank-line {
+    .hosp-head-main {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      margin-block-end: 8px;
+      align-items: flex-start;
+      gap: 14px;
     }
 
     .serial-code {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      padding-inline: 8px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-subtle);
+      border: 1px solid var(--line);
       font-family: var(--font-mono);
-      font-size: 12px;
-      line-height: 16px;
-      color: var(--text-muted);
       font-variant-numeric: tabular-nums;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      flex: none;
+      margin-top: 2px;
+    }
+
+    .hospital-card[data-tags*="integrated"] .serial-code {
+      background: var(--accent-soft);
+      border-color: var(--accent-line);
+      color: var(--accent);
+    }
+
+    .hospital-card[data-tags*="hanbang"] .serial-code {
+      background: var(--caution-soft);
+      border-color: var(--caution-line);
+      color: var(--caution);
     }
 
     .card-title {
       margin: 0;
       font-size: 20px;
-      font-weight: 500;
-      line-height: 1.3;
+      font-weight: 800;
+      letter-spacing: -0.025em;
       color: var(--text-primary);
+      line-height: 1.3;
     }
 
     .card-subtitle {
-      margin: 4px 0 0;
+      margin: 3px 0 8px;
+      font-size: 13.5px;
       color: var(--text-muted);
-      font-size: 13px;
+    }
+
+    .rank-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
     .contact-box {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 4px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      font-variant-numeric: tabular-nums;
+      align-items: flex-end;
+      gap: 6px;
+      text-align: right;
     }
 
-    @media (min-width: 680px) {
-      .contact-box {
-        align-items: flex-end;
-        text-align: right;
-      }
-    }
-
-    .contact-box .tel {
+    .tel {
       font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
+    }
+
+    .tel-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
     .ext-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 500;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--bg-page);
+      color: var(--accent);
+      font-size: 12.5px;
+      font-weight: 700;
       text-decoration: none;
+      transition: background-color 140ms var(--ease), border-color 140ms var(--ease);
     }
 
     .ext-link:hover {
-      text-decoration: underline;
+      background: var(--accent-soft);
+      border-color: var(--accent);
     }
 
+    /* Flattened 3-Column Spec Ledger (hairline dividers only — NO inner cards) */
     .card-meta-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-block-end: 16px;
-    }
-
-    @media (min-width: 780px) {
-      .card-meta-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfd;
     }
 
     .meta-panel {
-      background-color: var(--bg-page);
-      border: 1px solid var(--hairline);
-      border-radius: 8px;
-      padding: 12px 16px;
+      padding: 15px 22px;
+    }
+
+    .meta-panel + .meta-panel {
+      border-left: 1px solid var(--line);
     }
 
     .meta-panel h5 {
       margin: 0 0 6px;
-      font-size: 12px;
-      line-height: 16px;
-      font-weight: 500;
+      font-size: 12.5px;
+      font-weight: 700;
       color: var(--text-muted);
     }
 
     .meta-panel p {
       margin: 0;
-      font-size: 14px;
-      line-height: 1.55;
+      font-size: 13.5px;
+      line-height: 1.6;
       color: var(--text-secondary);
-      font-variant-numeric: tabular-nums;
     }
 
     .meta-panel strong {
-      font-weight: 500;
       color: var(--text-primary);
     }
 
+    /* Flattened 2-Column Review Ledger (hairline center seam — NO inner boxes) */
     .review-box {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding-block-start: 16px;
-      border-block-start: 1px solid var(--hairline);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    @media (min-width: 720px) {
-      .review-box {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 24px;
-      }
+    .review-col {
+      padding: 18px 24px 20px;
+    }
+
+    .review-col + .review-col {
+      border-left: 1px solid var(--line);
     }
 
     .review-col h5 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-primary);
+      gap: 7px;
+      font-size: 13.5px;
+      font-weight: 800;
     }
 
-    .review-col.is-pro .status-dot {
-      color: var(--positive);
+    .review-col.is-pro h5 {
+      color: var(--accent);
     }
 
-    .review-col.is-con .status-dot {
+    .review-col.is-con h5 {
       color: var(--caution);
     }
 
     .review-col ul {
       margin: 0;
-      padding-inline-start: 18px;
+      padding-left: 17px;
+      display: grid;
+      gap: 6px;
       font-size: 14px;
+      line-height: 1.62;
       color: var(--text-secondary);
-    }
-
-    .review-col li + li {
-      margin-block-start: 4px;
-    }
-
-    .review-col strong {
-      font-weight: 500;
-      color: var(--text-primary);
     }
 
     .card-footer-note {
-      margin: 16px 0 0;
-      padding-block-start: 12px;
-      border-block-start: 1px solid var(--hairline);
-      font-size: 13px;
-      color: var(--text-secondary);
-    }
-
-    .card-footer-note strong {
-      font-weight: 500;
+      margin: 0;
+      padding: 13px 24px;
+      border-top: 1px solid var(--line);
+      background: var(--caution-soft);
+      font-size: 13.5px;
+      line-height: 1.6;
       color: var(--text-primary);
     }
 
-    /* Note & Excluded Sections */
+    /* Borderline Note Banner */
     .note-banner {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline-strong);
-      border-radius: 12px;
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
       padding: 20px 24px;
-      margin-block-start: 20px;
-      box-shadow: var(--shadow-card);
     }
 
     .note-banner h3 {
       margin: 0 0 10px;
       font-size: 16px;
-      font-weight: 500;
+      font-weight: 800;
       color: var(--text-primary);
     }
 
     .note-banner ul {
       margin: 0;
-      padding-inline-start: 18px;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
       font-size: 14px;
+      line-height: 1.65;
       color: var(--text-secondary);
     }
 
-    .note-banner li + li {
-      margin-block-start: 8px;
-    }
-
-    .note-banner strong {
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
+    /* Excluded Hospitals */
     .excluded-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
     }
 
     .excluded-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 16px 20px;
-      box-shadow: var(--shadow-card);
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
     }
 
     .excluded-card h3 {
       margin: 0 0 6px;
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 800;
       color: var(--text-primary);
     }
 
     .excluded-card p {
       margin: 0;
-      font-size: 13px;
+      font-size: 13.5px;
+      line-height: 1.55;
       color: var(--text-secondary);
-      font-variant-numeric: tabular-nums;
     }
 
-    /* Accordion Checklist */
+    /* Checklist Accordion */
     .faq-controls {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
       gap: 12px;
-      margin-block-end: 12px;
+      margin-bottom: 14px;
     }
 
     .faq-hint {
-      font-size: 13px;
+      font-size: 13.5px;
+      font-weight: 600;
       color: var(--text-muted);
     }
 
-    .btn-quiet {
-      appearance: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-block-size: 36px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline-strong);
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 500;
-      padding-inline: 14px;
-      padding-block: 6px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 140ms var(--ease), transform 140ms var(--ease);
-    }
-
-    .btn-quiet:hover {
-      background-color: var(--bg-raised);
-    }
-
-    .btn-quiet:active {
-      transform: scale(0.98);
-    }
-
     .accordion-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    details {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      padding: 16px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      cursor: pointer;
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
       gap: 12px;
     }
 
-    .accordion-stack details {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--hairline);
-      border-radius: 12px;
-      padding: 16px 20px;
-      box-shadow: var(--shadow-card);
-    }
-
-    .accordion-stack summary {
-      cursor: pointer;
-      font-weight: 500;
-      font-size: 15px;
-      color: var(--text-primary);
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .accordion-stack summary::-webkit-details-marker {
+    summary::-webkit-details-marker {
       display: none;
     }
 
-    .accordion-stack summary::after {
+    summary::after {
       content: "+";
       font-family: var(--font-mono);
       font-size: 18px;
-      font-weight: 400;
+      font-weight: 600;
       color: var(--accent);
-      flex-shrink: 0;
+      flex: none;
     }
 
-    .accordion-stack details[open] summary::after {
+    details[open] summary {
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfd;
+    }
+
+    details[open] summary::after {
       content: "−";
     }
 
     .accordion-body {
-      margin-block-start: 12px;
-      padding-block-start: 12px;
-      border-block-start: 1px solid var(--hairline);
-      color: var(--text-secondary);
-      font-size: 14px;
+      padding: 16px 22px 18px;
     }
 
     .accordion-body ul {
       margin: 0;
-      padding-inline-start: 18px;
-    }
-
-    .accordion-body li + li {
-      margin-block-start: 6px;
-    }
-
-    .accordion-body strong {
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .empty-state {
-      background-color: var(--bg-surface);
-      border: 1px dashed var(--hairline-strong);
-      border-radius: 12px;
-      padding: 32px 24px;
-      text-align: center;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      font-size: 14.5px;
+      line-height: 1.65;
       color: var(--text-secondary);
-      margin-block-start: 16px;
     }
 
-    .empty-state[hidden] {
-      display: none;
-    }
-
-    .empty-state p {
-      margin: 0 0 16px;
-      font-size: 14px;
-    }
-
+    /* Footer */
     .site-footer {
-      border-block-start: 1px solid var(--hairline);
-      padding-block: 24px 48px;
-      color: var(--text-muted);
+      border-top: 1px solid var(--line);
+      padding-block: 28px 48px;
       font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
     }
 
-    .site-footer p {
-      margin: 0;
-      max-inline-size: 84ch;
+    /* Responsive Adaptations */
+    @media (max-width: 980px) {
+      .hero-grid,
+      .summary-grid,
+      .rule-grid,
+      .card-meta-grid,
+      .review-box {
+        grid-template-columns: 1fr;
+      }
+
+      .meta-panel + .meta-panel,
+      .review-col + .review-col {
+        border-left: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .contact-box {
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+
+      .binder-brand {
+        display: none;
+      }
+
+      .site-header {
+        padding-block: 24px;
+      }
+
+      .condition-item {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .card-top {
+        padding: 16px 18px 14px;
+      }
+
+      .meta-panel,
+      .review-col {
+        padding: 14px 18px;
+      }
+
+      .filter-btn {
+        font-size: 12.5px;
+        padding: 7px 10px;
+      }
+    }
+
+    @media print {
+      .top-nav,
+      .filter-toolbar,
+      .faq-controls {
+        display: none !important;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .hospital-card,
+      .table-wrap,
+      .summary-card,
+      .rule-card {
+        break-inside: avoid;
+        box-shadow: none;
+      }
     }
   </style>
 </head>
 <body>
   <a class="skip-link visually-hidden" href="#main-content">본문으로 바로 가기</a>
 
+  <nav class="top-nav" aria-label="문서 주요 영역 탐색">
+    <div class="container top-nav-inner">
+      <div class="binder-brand">
+        <span class="binder-mark" aria-hidden="true"></span>
+        <span>구파발 통원 재활 진료 바인더</span>
+      </div>
+      <div class="nav-links">
+        <a href="#core-strategy"><span class="nav-idx">01</span>핵심 비교 · 제도</a>
+        <a href="#compare-matrix"><span class="nav-idx">02</span>10곳 비교 · 필터</a>
+        <a href="#hospital-details"><span class="nav-idx">03</span>병원별 상세 · 후기</a>
+        <a href="#excluded-hospitals"><span class="nav-idx">04</span>제외 병원</a>
+        <a href="#faq-checklist"><span class="nav-idx">05</span>입원 전 체크리스트</a>
+      </div>
+    </div>
+  </nav>
+
   <header class="site-header">
     <div class="container hero-grid">
       <div>
-        <p class="eyebrow">구파발역 출발 · 대중교통 5~30분권 · 요양병원 제외 · 실비 미가입 기준</p>
         <h1>80대 어머니 허리 협착 수술 후 걷기 재활병원 비교 가이드</h1>
         <p class="hero-sub">
           연로하신 아버님이 구파발 댁에서 대중교통으로 무리 없이 오가실 수 있는 <strong>지하철 3호선(5~15분)·직통 버스 권역(7722번·7211번)</strong> 중심으로 추려, 환승이 잦거나 먼 병원은 제외했습니다. <strong>사설 간병인 비용(일 13~15만 원)이 없는 간호·간병통합서비스 병원 6곳</strong>(서울재활·로이·홀리 3대 재활병원 집중 비교 포함)을 우선 정리하고, <strong>대중교통이 가까운 한방병원 4곳</strong>과 <strong>병원별 실제 후기 장단점 요약</strong>을 함께 담았습니다.
         </p>
+        <div class="hero-chips">
+          <span class="scope-chip is-teal">그룹 A · 통합간병 6곳</span>
+          <span class="scope-chip is-amber">그룹 B · 한방 자립단계 4곳</span>
+          <span class="scope-chip">경계 2곳 · 제외 5곳</span>
+          <span class="scope-chip">실비 미가입 · 다인실 기준</span>
+        </div>
       </div>
 
       <dl class="condition-ledger" aria-label="핵심 선정 기준">
         <div class="condition-item">
-          <dt>환자 · 치료 목표</dt>
+          <dt>출발 · 권역</dt>
+          <dd>구파발역 출발 · 대중교통 5~30분권 · 요양병원 제외</dd>
+        </div>
+        <div class="condition-item">
+          <dt>환자 · 목표</dt>
           <dd>80대 어머님 · 허리 협착 수술 후 보행·기립 재활</dd>
         </div>
         <div class="condition-item">
-          <dt>보호자 통원 조건</dt>
+          <dt>보호자 동선</dt>
           <dd>구파발역 3호선 5~30분 + 직행버스(7722·7211번)</dd>
         </div>
         <div class="condition-item">
-          <dt>간병 · 실비 기준</dt>
-          <dd>실비보험 없음 · 다인실 + 통합병동 우선</dd>
-        </div>
-        <div class="condition-item">
-          <dt>포함 범위</dt>
-          <dd>통합간병 재활·종합병원 6곳 + 역세권 한방병원 4곳</dd>
+          <dt>간병 · 실비</dt>
+          <dd>실비보험 없음 · 다인실 + 통합병동 우선(총 10곳 수록)</dd>
         </div>
       </dl>
     </div>
   </header>
-
-  <nav class="top-nav" aria-label="문서 주요 영역 탐색">
-    <div class="container top-nav-inner">
-      <a href="#core-strategy">1. 3대 핵심 비교 · 제도</a>
-      <a href="#compare-matrix">2. 10곳 한눈에 비교 · 필터</a>
-      <a href="#hospital-details">3. 병원별 상세 · 후기 분석</a>
-      <a href="#excluded-hospitals">4. 대중교통 어려워 제외한 곳</a>
-      <a href="#faq-checklist">5. 입원 전 확인 체크리스트</a>
-    </div>
-  </nav>
 
   <main id="main-content" class="container" tabindex="-1">
     <!-- 1. 핵심 결론 및 제도 구분 -->
@@ -1252,29 +1196,35 @@
 
       <div class="summary-grid">
         <article class="summary-card">
-          <span class="tag-label is-accent">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span>거동 도움 필요 · 3대 핵심 재활</span>
-          </span>
-          <h3>서울재활 vs 로이 vs 홀리</h3>
+          <div class="summary-card-head">
+            <h3>서울재활 vs 로이 vs 홀리</h3>
+            <span class="tag-label is-accent">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>거동 도움 필요 · 3대 핵심 재활</span>
+            </span>
+          </div>
           <p><strong>서울재활</strong>은 3기 회복기+통합+근거리(15~20분)이나 대기 1~2개월이 변수입니다. <strong>로이병원</strong>은 구파발 7211번 직행버스(45분~1시간)로 3기 회복기+5층 통합병동을 챙길 수 있는 대안입니다. <strong>홀리병원</strong>은 지축역 5분·통합병동·식사 호평·빠른 입원이 강점이나 3기 회복기 목록에는 미포함입니다.</p>
         </article>
 
         <article class="summary-card">
-          <span class="tag-label is-accent">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span>초근거리 · 수술 직후 안정</span>
-          </span>
-          <h3>청구성심 · 본서부 · 세란병원</h3>
+          <div class="summary-card-head">
+            <h3>청구성심 · 본서부 · 세란병원</h3>
+            <span class="tag-label is-accent">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>초근거리 · 수술 직후 안정</span>
+            </span>
+          </div>
           <p><strong>청구성심병원</strong>(연신내역 5분, 통합간병 S등급)과 <strong>세란병원</strong>(독립문역 무환승 15분)은 수술 직후 합병증 관찰·단기 회복에 적합합니다. <strong>본서부병원</strong>은 구파발역 7722번 버스 직통(20~25분)으로 척추 특수재활과 통합병동을 함께 운영합니다.</p>
         </article>
 
         <article class="summary-card">
-          <span class="tag-label is-caution">
-            <span class="status-dot" aria-hidden="true"></span>
-            <span>스스로 화장실·식사 가능 시</span>
-          </span>
-          <h3>은평포레스트 · 내일 · 지축 한방</h3>
+          <div class="summary-card-head">
+            <h3>은평포레스트 · 내일 · 지축 한방</h3>
+            <span class="tag-label is-caution">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>스스로 화장실·식사 가능 시</span>
+            </span>
+          </div>
           <p><strong>은평포레스트</strong>(녹번역 10분), <strong>내일한방</strong>(응암역 25~30분), <strong>여기·소통한방</strong>(지축역 5~6분)은 대중교통 접근성과 신축 쾌적함이 강점입니다. 단, 통합간병이 없으므로 <strong>자립 보행·생활이 가능한 후기 단계</strong>에 급여 위주 조율 시 적합합니다.</p>
         </article>
       </div>
@@ -1347,7 +1297,7 @@
             <tbody id="compare-tbody">
               <tr data-tags="integrated recovery">
                 <th scope="row">
-                  <strong>01. 서울재활병원</strong>
+                  <strong><span class="mono">01.</span> 서울재활병원</strong>
                   <div class="badge-row">
                     <span class="badge badge-accent">제3기 회복기</span>
                     <span class="badge">통합재활병동</span>
@@ -1360,7 +1310,7 @@
               </tr>
               <tr data-tags="integrated subway">
                 <th scope="row">
-                  <strong>02. 홀리병원</strong>
+                  <strong><span class="mono">02.</span> 홀리병원</strong>
                   <div class="badge-row">
                     <span class="badge badge-accent">통합재활병동</span>
                     <span class="badge badge-caution">회복기 미지정</span>
@@ -1373,7 +1323,7 @@
               </tr>
               <tr data-tags="integrated recovery">
                 <th scope="row">
-                  <strong>03. 로이병원</strong>
+                  <strong><span class="mono">03.</span> 로이병원</strong>
                   <div class="badge-row">
                     <span class="badge badge-accent">제3기 회복기</span>
                     <span class="badge">5층 통합병동</span>
@@ -1386,7 +1336,7 @@
               </tr>
               <tr data-tags="integrated subway">
                 <th scope="row">
-                  <strong>04. 청구성심병원</strong>
+                  <strong><span class="mono">04.</span> 청구성심병원</strong>
                   <div class="badge-row">
                     <span class="badge badge-accent">통합 S등급</span>
                     <span class="badge">종합병원</span>
@@ -1399,7 +1349,7 @@
               </tr>
               <tr data-tags="integrated">
                 <th scope="row">
-                  <strong>05. 본서부병원</strong>
+                  <strong><span class="mono">05.</span> 본서부병원</strong>
                   <div class="badge-row">
                     <span class="badge badge-accent">통합병동</span>
                     <span class="badge">척추특수재활</span>
@@ -1412,7 +1362,7 @@
               </tr>
               <tr data-tags="integrated subway">
                 <th scope="row">
-                  <strong>06. 세란병원</strong>
+                  <strong><span class="mono">06.</span> 세란병원</strong>
                   <div class="badge-row">
                     <span class="badge badge-accent">통합병동 탄력</span>
                     <span class="badge">종합·척추센터</span>
@@ -1425,7 +1375,7 @@
               </tr>
               <tr data-tags="hanbang subway">
                 <th scope="row">
-                  <strong>07. 은평포레스트한방병원</strong>
+                  <strong><span class="mono">07.</span> 은평포레스트한방병원</strong>
                   <div class="badge-row">
                     <span class="badge">양·한방 협진</span>
                     <span class="badge badge-caution">통합간병 없음</span>
@@ -1438,7 +1388,7 @@
               </tr>
               <tr data-tags="hanbang">
                 <th scope="row">
-                  <strong>08. 내일한방병원</strong>
+                  <strong><span class="mono">08.</span> 내일한방병원</strong>
                   <div class="badge-row">
                     <span class="badge">양·한방 협진</span>
                     <span class="badge badge-caution">통합간병 없음</span>
@@ -1451,7 +1401,7 @@
               </tr>
               <tr data-tags="hanbang subway">
                 <th scope="row">
-                  <strong>09. 여기한방병원</strong>
+                  <strong><span class="mono">09.</span> 여기한방병원</strong>
                   <div class="badge-row">
                     <span class="badge">양·한방 협진</span>
                     <span class="badge badge-caution">통합간병 없음</span>
@@ -1464,7 +1414,7 @@
               </tr>
               <tr data-tags="hanbang subway">
                 <th scope="row">
-                  <strong>10. 소통한방병원</strong>
+                  <strong><span class="mono">10.</span> 소통한방병원</strong>
                   <div class="badge-row">
                     <span class="badge">양·한방 협진</span>
                     <span class="badge badge-caution">통합간병 없음</span>
@@ -1493,22 +1443,24 @@
         <p>보호자와 환자의 실제 입원 후기·온라인 평가를 바탕으로 <strong>좋은 평</strong>과 <strong>아쉬운 점·주의사항</strong>을 객관적으로 정리했습니다.</p>
       </div>
 
-      <h3 class="cards-group-title">
+      <h3 class="cards-group-title" id="group-a-title">
         <span class="status-dot" style="color: var(--accent);" aria-hidden="true"></span>
         <span>그룹 A · 사설 간병 없는 간호·간병통합서비스 병원 (6곳)</span>
       </h3>
-      <div class="cards-grid">
+      <div class="cards-grid" id="group-a-grid">
         <!-- 01. 서울재활병원 -->
         <article class="hospital-card" data-tags="integrated recovery">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">01</span>
-                <span class="badge badge-accent">제3기 회복기 재활의료기관</span>
-                <span class="badge">간호·간병통합 재활병동</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">01</span>
+              <div>
+                <h4 class="card-title">서울재활병원</h4>
+                <p class="card-subtitle">서울시 은평구 갈현로11길 30 (구산동)</p>
+                <div class="rank-line">
+                  <span class="badge badge-accent">제3기 회복기 재활의료기관</span>
+                  <span class="badge">간호·간병통합 재활병동</span>
+                </div>
               </div>
-              <h4 class="card-title">서울재활병원</h4>
-              <p class="card-subtitle">서울시 은평구 갈현로11길 30 (구산동)</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-6020-3000 · 입원 02-6020-3010~1</span>
@@ -1559,14 +1511,16 @@
         <!-- 02. 홀리병원 -->
         <article class="hospital-card" data-tags="integrated subway">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">02</span>
-                <span class="badge badge-accent">간호·간병통합 재활병동</span>
-                <span class="badge badge-caution">제3기 회복기 목록 미포함</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">02</span>
+              <div>
+                <h4 class="card-title">홀리병원</h4>
+                <p class="card-subtitle">경기도 고양시 덕양구 지축1로 65, 로로프라자 3~6층</p>
+                <div class="rank-line">
+                  <span class="badge badge-accent">간호·간병통합 재활병동</span>
+                  <span class="badge badge-caution">제3기 회복기 목록 미포함</span>
+                </div>
               </div>
-              <h4 class="card-title">홀리병원</h4>
-              <p class="card-subtitle">경기도 고양시 덕양구 지축1로 65, 로로프라자 3~6층</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-381-1175 · 입원 02-381-1179</span>
@@ -1618,14 +1572,16 @@
         <!-- 03. 로이병원 -->
         <article class="hospital-card" data-tags="integrated recovery">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">03</span>
-                <span class="badge badge-accent">제3기 회복기 재활의료기관</span>
-                <span class="badge">5층 통합병동 (약 70병상)</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">03</span>
+              <div>
+                <h4 class="card-title">로이병원</h4>
+                <p class="card-subtitle">서울시 종로구 평창문화로 75, 글로리아타운 2·3·5층 (평창동)</p>
+                <div class="rank-line">
+                  <span class="badge badge-accent">제3기 회복기 재활의료기관</span>
+                  <span class="badge">5층 통합병동 (약 70병상)</span>
+                </div>
               </div>
-              <h4 class="card-title">로이병원</h4>
-              <p class="card-subtitle">서울시 종로구 평창문화로 75, 글로리아타운 2·3·5층 (평창동)</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-1644-7541 · 입원상담 010-6844-7541</span>
@@ -1676,14 +1632,16 @@
         <!-- 04. 청구성심병원 -->
         <article class="hospital-card" data-tags="integrated subway">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">04</span>
-                <span class="badge badge-accent">간호·간병통합 최우수 S등급</span>
-                <span class="badge">종합병원 · 24시간 응급실</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">04</span>
+              <div>
+                <h4 class="card-title">청구성심병원</h4>
+                <p class="card-subtitle">서울시 은평구 통일로 873 (갈현동)</p>
+                <div class="rank-line">
+                  <span class="badge badge-accent">간호·간병통합 최우수 S등급</span>
+                  <span class="badge">종합병원 · 24시간 응급실</span>
+                </div>
               </div>
-              <h4 class="card-title">청구성심병원</h4>
-              <p class="card-subtitle">서울시 은평구 통일로 873 (갈현동)</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-350-3300 · 입퇴원 02-350-3425 · 도수 02-350-3499</span>
@@ -1734,14 +1692,16 @@
         <!-- 05. 본서부병원 -->
         <article class="hospital-card" data-tags="integrated">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">05</span>
-                <span class="badge badge-accent">간호·간병통합병동</span>
-                <span class="badge">척추·관절·통증특수재활</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">05</span>
+              <div>
+                <h4 class="card-title">본서부병원</h4>
+                <p class="card-subtitle">서울시 은평구 은평로 133 (응암동)</p>
+                <div class="rank-line">
+                  <span class="badge badge-accent">간호·간병통합병동</span>
+                  <span class="badge">척추·관절·통증특수재활</span>
+                </div>
               </div>
-              <h4 class="card-title">본서부병원</h4>
-              <p class="card-subtitle">서울시 은평구 은평로 133 (응암동)</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-3156-5000</span>
@@ -1792,14 +1752,16 @@
         <!-- 06. 세란병원 -->
         <article class="hospital-card" data-tags="integrated subway">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">06</span>
-                <span class="badge badge-accent">간호·간병통합병동 탄력 운영</span>
-                <span class="badge">종합병원 · 척추센터</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">06</span>
+              <div>
+                <h4 class="card-title">세란병원</h4>
+                <p class="card-subtitle">서울시 종로구 통일로 256 (무악동)</p>
+                <div class="rank-line">
+                  <span class="badge badge-accent">간호·간병통합병동 탄력 운영</span>
+                  <span class="badge">종합병원 · 척추센터</span>
+                </div>
               </div>
-              <h4 class="card-title">세란병원</h4>
-              <p class="card-subtitle">서울시 종로구 통일로 256 (무악동)</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 1577-1987 · 02-737-0181</span>
@@ -1848,22 +1810,24 @@
         </article>
       </div>
 
-      <h3 class="cards-group-title">
+      <h3 class="cards-group-title" id="group-b-title">
         <span class="status-dot" style="color: var(--caution);" aria-hidden="true"></span>
         <span>그룹 B · 대중교통 가까운 한방병원 4곳 (간호·간병통합 없음 · 자립 보행 단계용)</span>
       </h3>
-      <div class="cards-grid">
+      <div class="cards-grid" id="group-b-grid">
         <!-- 07. 은평포레스트한방병원 -->
         <article class="hospital-card" data-tags="hanbang subway">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">07</span>
-                <span class="badge">양·한방 협진</span>
-                <span class="badge badge-caution">간호·간병통합 없음</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">07</span>
+              <div>
+                <h4 class="card-title">은평포레스트한방병원</h4>
+                <p class="card-subtitle">서울시 은평구 통일로 636, 4~5층 (녹번동)</p>
+                <div class="rank-line">
+                  <span class="badge">양·한방 협진</span>
+                  <span class="badge badge-caution">간호·간병통합 없음</span>
+                </div>
               </div>
-              <h4 class="card-title">은평포레스트한방병원</h4>
-              <p class="card-subtitle">서울시 은평구 통일로 636, 4~5층 (녹번동)</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-6951-2727 · 1899-5868</span>
@@ -1914,14 +1878,16 @@
         <!-- 08. 내일한방병원 -->
         <article class="hospital-card" data-tags="hanbang">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">08</span>
-                <span class="badge">양·한방 협진</span>
-                <span class="badge badge-caution">간호·간병통합 없음</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">08</span>
+              <div>
+                <h4 class="card-title">내일한방병원</h4>
+                <p class="card-subtitle">서울시 은평구 응암로 267, 1~3층 (응암동)</p>
+                <div class="rank-line">
+                  <span class="badge">양·한방 협진</span>
+                  <span class="badge badge-caution">간호·간병통합 없음</span>
+                </div>
               </div>
-              <h4 class="card-title">내일한방병원</h4>
-              <p class="card-subtitle">서울시 은평구 응암로 267, 1~3층 (응암동)</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-6954-1149</span>
@@ -1971,18 +1937,20 @@
         <!-- 09. 여기한방병원 -->
         <article class="hospital-card" data-tags="hanbang subway">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">09</span>
-                <span class="badge">양·한방 협진 · 60병상</span>
-                <span class="badge badge-caution">간호·간병통합 없음</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">09</span>
+              <div>
+                <h4 class="card-title">여기한방병원</h4>
+                <p class="card-subtitle">경기도 고양시 덕양구 지축1로 41, 4~6층</p>
+                <div class="rank-line">
+                  <span class="badge">양·한방 협진 · 60병상</span>
+                  <span class="badge badge-caution">간호·간병통합 없음</span>
+                </div>
               </div>
-              <h4 class="card-title">여기한방병원</h4>
-              <p class="card-subtitle">경기도 고양시 덕양구 지축1로 41, 4~6층</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-337-1010</span>
-              <span>지축역 1·2번 출구 인근 (신축 상가)</span>
+              <span class="tel-note">지축역 1·2번 출구 인근 (신축 상가)</span>
             </div>
           </div>
           <div class="card-meta-grid">
@@ -2021,14 +1989,16 @@
         <!-- 10. 소통한방병원 -->
         <article class="hospital-card" data-tags="hanbang subway">
           <div class="card-top">
-            <div>
-              <div class="rank-line">
-                <span class="serial-code">10</span>
-                <span class="badge">양·한방 협진 · 365일</span>
-                <span class="badge badge-caution">간호·간병통합 없음</span>
+            <div class="hosp-head-main">
+              <span class="serial-code">10</span>
+              <div>
+                <h4 class="card-title">소통한방병원</h4>
+                <p class="card-subtitle">경기도 고양시 덕양구 지축로 52, 5~8층</p>
+                <div class="rank-line">
+                  <span class="badge">양·한방 협진 · 365일</span>
+                  <span class="badge badge-caution">간호·간병통합 없음</span>
+                </div>
               </div>
-              <h4 class="card-title">소통한방병원</h4>
-              <p class="card-subtitle">경기도 고양시 덕양구 지축로 52, 5~8층</p>
             </div>
             <div class="contact-box">
               <span class="tel">대표 02-547-8275</span>
@@ -2191,6 +2161,10 @@
       const resetBtn = document.getElementById('reset-filter-btn');
       const tableRows = Array.from(document.querySelectorAll('#compare-tbody tr'));
       const cards = Array.from(document.querySelectorAll('.hospital-card'));
+      const groupATitle = document.getElementById('group-a-title');
+      const groupAGrid = document.getElementById('group-a-grid');
+      const groupBTitle = document.getElementById('group-b-title');
+      const groupBGrid = document.getElementById('group-b-grid');
 
       let activeFilter = 'all';
 
@@ -2200,6 +2174,13 @@
         if (!tagOk) return false;
         if (!query) return true;
         return el.textContent.toLowerCase().includes(query);
+      }
+
+      function syncGroupVisibility(titleEl, gridEl) {
+        if (!titleEl || !gridEl) return;
+        const hasVisible = Array.from(gridEl.children).some((card) => !card.hidden);
+        titleEl.hidden = !hasVisible;
+        gridEl.hidden = !hasVisible;
       }
 
       function applyFilter() {
@@ -2215,6 +2196,9 @@
         cards.forEach((card) => {
           card.hidden = !matchesItem(card, query);
         });
+
+        syncGroupVisibility(groupATitle, groupAGrid);
+        syncGroupVisibility(groupBTitle, groupBGrid);
 
         emptyEl.hidden = visibleCount > 0;
         const activeBtn = buttons.find((b) => b.dataset.filter === activeFilter);
